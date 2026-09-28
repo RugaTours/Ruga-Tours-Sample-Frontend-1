@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: inherit;
+  --font-sans: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink antialiased;
+  font-feature-settings: "cv02", "cv03";
+}
+
+::selection {
+  background: rgba(95, 212, 180, 0.5);
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* thin, brand-tinted scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c3d3e6; border-radius: 999px; border: 2px solid #f6fafd; }
+::-webkit-scrollbar-thumb:hover { background: #9db9d6; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* dark footer/testimonial "evening" sections like the logo's ink background */
+.evening {
+  background:
+    radial-gradient(1200px 400px at 85% -10%, rgba(47, 180, 145, 0.16), transparent 60%),
+    radial-gradient(900px 380px at -10% 110%, rgba(89, 185, 235, 0.12), transparent 55%),
+    #06101f;
+}
+
+.hero-grad {
+  background: linear-gradient(135deg, #06101f 0%, #1e4176 55%, #2fb491 130%);
+}
+
+.palm-watermark {
+  position: relative;
+  overflow: hidden;
+}
+.palm-watermark::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(95, 212, 180, 0.14), transparent 70%);
+  pointer-events: none;
+}
